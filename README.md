@@ -62,10 +62,9 @@ python translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image ..
 
 ### Example Results
 
-[![Day2NightTranslationVideo](./docs/set01_v002.png)](https://www.youtube.com/watch?v=okUKH-KXiCY)
+![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
 
-[![Fog2NoFog(Back View)](./docs/fog2summer_B_000000.png)](https://www.youtube.com/watch?v=E6exDXjESHA)[![Fog2NoFog(Left View)](./docs/fog2summer_L_000000.png)](https://www.youtube.com/watch?v=zfO4msSwrb0)[![Fog2NoFog(Front View)](./docs/fog2summer_F_000000.png)](https://www.youtube.com/watch?v=BTgA3l9iRWE)[![Fog2NoFog(Right View)](./docs/fog2summer_R_000000.png)](https://www.youtube.com/watch?v=scnJT1yI95U)
-
+![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_L.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_R.gif)
 
 [1] thermal IR image to color image translation (Left, input and right, translation.)
 ![](./docs/ir2vis.jpg)
