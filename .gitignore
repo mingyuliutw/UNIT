@@ -1,0 +1,9 @@
+*.pyc
+outputs/
+data/
+.idea/
+dgx/scripts/
+*.tar.gz
+notebooks/.ipynb_checkpoints/*
+*.zip
+logs/
