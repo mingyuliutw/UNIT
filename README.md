@@ -62,6 +62,8 @@ python translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image ..
 
 ### Example Results
 
+Left: Input foggy images. Right: Output sunny images.
+
 ![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
 
 ![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_L.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_R.gif)
