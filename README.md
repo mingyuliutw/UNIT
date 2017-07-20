@@ -76,7 +76,11 @@ From smiling to neutral. (Turn smiling attribute off)
 
 ### Example Results
 
-Left: Input foggy images. Right: Output sunny images. Learning was conducted using SYNTHIA dataset. 
+Left: Input foggy images. Right: Output sunny images. Learning was conducted using SYNTHIA dataset. For videos in the original resolution, click 
+https://www.youtube.com/watch?v=E6exDXjESHA
+https://www.youtube.com/watch?v=BTgA3l9iRWE
+https://www.youtube.com/watch?v=zfO4msSwrb0
+https://www.youtube.com/watch?v=scnJT1yI95U
 
 ![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
 
