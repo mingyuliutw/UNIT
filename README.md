@@ -32,37 +32,45 @@ The scripts are based on our experiments on the [KAIST dataset](https://sites.go
 
 Training
 ```
-python train.py --config ../exps/kaist_day_and_night.yaml  --log ../logs;
 python train.py --config ../exps/celeba_blond_hair.yaml --log ../logs;
 ```
 Resume training
  ```
-python train.py --config ../exps/kaist_day_and_night.yaml  --log ../logs --resume 1;
 python train.py --config ../exps/celeba_blond_hair.yaml --log ../logs --resume 1;
 ```
 Testing 
 
-Day to Night Translation
+Download pretrained models from https://drive.google.com/drive/folders/0BwpOatrZwxK6STdZcXNNcXpFSHM?usp=sharing and save them in snapshots/ folder.
 
+From no-blond-hair to blond-hair. (Turn blond hair attribute on)
 ```
-python translate.py --config ../exps/kaist_day_and_night.yaml --root ../datasets/kaist_multi/ --folder images/ --list images/Day2Night/train_all_day.txt  --weights ../outputs/kaist_day_and_night/kaist_day_and_night_gen_00050000.pkl --a2b 1 --output ../results/ --gpu 0
+./translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image_name ../images/ian.jpg --output_image_name ../results/ian_to_blond_hair.jpg --weights ../snapshots/celeba_blond_hair_gen_00500000.pkl --a2b 0
 ```
+![No-blond-hair to blond-hair](./results/ian_to_blond_hair.jpg)
 
-Night to Day Translation
+From goatee to non-goatee. (Turn goatee attribute off)
+```
+./translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image_name ../images/ian.jpg --output_image_name ../results/ian_to_no_goatee.jpg --weights ../snapshots/celeba_goatee_gen_00500000.pkl --a2b 1
+```
+![Goatee to non-goatee](./results/ian_to_no_goatee.jpg)
 
+From no eyeglasses to eyeglasses. (Turn eyeglasses attribute on)
 ```
-python translate.py --config ../exps/kaist_day_and_night.yaml --root ../datasets/kaist_multi/ --folder images/ --list images/Day2Night/train_all_night.txt  --weights ../outputs/kaist_day_and_night/kaist_day_and_night_gen_00050000.pkl --a2b 0 --output ../results/ --gpu 0
+./translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image_name ../images/ian.jpg --output_image_name ../results/ian_to_eyeglasses.jpg --weights ../snapshots/celeba_eyeglasses_gen_00500000.pkl --a2b 0
 ```
+![No-eyeglasses to eyeglasses](./results/ian_to_eyeglasses.jpg)
 
-Non-blond Hair to Blond Hair Translation
+From smiling to neutral. (Turn smiling attribute off)
+```
+./translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image_name ../images/ian.jpg --output_image_name ../results/ian_to_no_smiling.jpg --weights ../snapshots/celeba_smiling_gen_00500000.pkl --a2b 1
+```
+![Smiling to neutral](./results/ian_to_no_smiling.jpg)
 
-```
-python translate_one_image.py --config ../exps/celeba_blond_hair.yaml --image ../images/032162.jpg --weights ../outputs/celeba_blond_hair/celeba_blond_hair_gen_00500000.pkl --a2b 0 --output ../results/032162_with_blond_hair.jpg
-```
+
 
 ### Example Results
 
-Left: Input foggy images. Right: Output sunny images.
+Left: Input foggy images. Right: Output sunny images. Learning was conducted using SYNTHIA dataset. 
 
 ![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
 
@@ -84,7 +92,7 @@ Left: Input foggy images. Right: Output sunny images.
 
 ### One Example
 
-Attribute-based face image translation.
+Training for attribute-based face image translation.
 
 - Step 1. Download the file img_aligned_celeba.zip based on the instructions in [CelebA dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) and unzip it to datasets/celeba/img_align_celeba/ folder
 - Step 2. Crop and resize CelebA images.

@@ -1,0 +1,18 @@
+"""
+Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
+Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
+"""
+
+import torch.nn.init as init
+import numpy as np
+
+def gaussian_weights_init(m):
+    classname = m.__class__.__name__
+    if classname.find('Conv') != -1:
+        m.weight.data.normal_(0.0, 0.02)
+
+def xavier_weights_init(m):
+    classname = m.__class__.__name__
+    if classname.find('Conv') != -1:
+        init.xavier_uniform(m.weight, gain=np.sqrt(2))
+        init.constant(m.bias, 0.1)
