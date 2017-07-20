@@ -44,7 +44,7 @@ python train.py --config ../exps/celeba_blond_hair.yaml --log ../logs --resume 1
 ```
 #### Testing 
 
-We thanks Ian Goodfellow for kindly providing his photo for our demonstration.
+We thank Ian Goodfellow for kindly providing his photo for our demo.
 
 Download pretrained models from https://drive.google.com/drive/folders/0BwpOatrZwxK6STdZcXNNcXpFSHM?usp=sharing and save them in snapshots/ folder.
 
