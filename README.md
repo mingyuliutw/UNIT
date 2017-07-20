@@ -32,17 +32,17 @@ pip install tensorboard
 
 ### Usage
 
-The scripts are based on our experiments on the [KAIST dataset](https://sites.google.com/site/pedestrianbenchmark/) and [CelebA dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html).
+The scripts are based on our experiments on the [CelebA dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html).
 
-Training
+#### Training
 ```
 python train.py --config ../exps/celeba_blond_hair.yaml --log ../logs;
 ```
-Resume training
+#### Resume training
  ```
 python train.py --config ../exps/celeba_blond_hair.yaml --log ../logs --resume 1;
 ```
-Testing 
+#### Testing 
 
 We thanks Ian Goodfellow for kindly providing his photo for our demonstration.
 
