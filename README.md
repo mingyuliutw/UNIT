@@ -1,4 +1,4 @@
-## PyTorch Implementation of the Unsupervised Image-to-Image Translation  (UNIT) Networks
+## PyTorch Implementation of our Coupled VAE-GAN algorithm for Unsupervised Image-to-Image Translation
 
 ### License
 
@@ -7,7 +7,7 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 
 
 ### General
-This is a PyTorch implementation of the UNIT algorithm. 
+This is a PyTorch implementation of the Coupled VAE-GAN (CoVAEGAN) algorithm for Unsupervised Image-to-Image Translation. 
 For more details please refer to our [paper](https://arxiv.org/abs/1703.00848).
 
 Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation Networks" arXiv:1703.00848 2017
@@ -16,7 +16,7 @@ Please cite our paper if this software is used in your publications.
 
 ### Algorithm Overview
 
-Given a dataset of images from one domain and another dataset of images from other domain, UNIT learns to translate an image from one domain to a corresponding image in the other domain without requiring corresponding images in the two domains. In some sense, it tries to learn a joint distribution of images from samples drawn from marginal distributions. In theory, this is not possible without additional assumption. The assumption UNIT makes is the shared latent space assumption. It assumes pairs of corresponding images have the same latent code and implements weight-sharing constraints to enforce this assumption under the unsupervised setting. For more details, please refer to our paper https://arxiv.org/abs/1703.00848.
+Given a dataset of images from one domain and another dataset of images from other domain, CoVAEGAN learns to translate an image from one domain to a corresponding image in the other domain without requiring corresponding images in the two domains. In some sense, it tries to learn a joint distribution of images from samples drawn from marginal distributions. In theory, this is not possible without additional assumption. The assumption CoVAEGAN makes is the shared latent space assumption. It assumes pairs of corresponding images have the same latent code and implements weight-sharing constraints to enforce this assumption under the unsupervised setting. For more details, please refer to our paper https://arxiv.org/abs/1703.00848.
 
 ### Dependency
 pytorch, yaml, opencv, and tensorboard (from https://github.com/dmlc/tensorboard).
