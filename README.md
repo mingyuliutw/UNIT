@@ -14,7 +14,7 @@ Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation 
 
 Please cite our paper if this software is used in your publications.
 
-### Notice
+### Note
 
 As a researcher, I tried to keep all the hyperparameter fixed. But for applying them to your application, manually checking which training epoch generating the best results is recommended. In this implementation, we do not use a single GAN trick (not even BatchNorm). But for improving image generation quality, I recommend you use them.
 
