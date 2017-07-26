@@ -16,7 +16,7 @@ Please cite our paper if this software is used in your publications.
 
 ### Note
 
-As a researcher, I tried to keep all the hyperparameter fixed. But for applying them to your application, manually checking which training epoch generating the best results is recommended. In this implementation, we do not use a single GAN trick (not even BatchNorm). But for improving image generation quality, I recommend you use them.
+As a researcher, I tried to keep all the hyperparameter values fixed. But for applying the code to your application, manually checking which training epoch generating the best results is recommended. Also, in this implementation, we do not use a single GAN trick (not even BatchNorm). But for improving image generation quality, I recommend you use them.
 
 ### Algorithm Overview
 
