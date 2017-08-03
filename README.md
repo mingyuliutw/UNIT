@@ -14,6 +14,12 @@ Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation 
 
 Please cite our paper if this software is used in your publications.
 
+Left: Input foggy images. Right: Output sunny images. Learning was conducted using SYNTHIA dataset. For videos in the original resolution, check out https://www.youtube.com/watch?v=E6exDXjESHA
+
+![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
+
+![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_L.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_R.gif)
+
 ### Note
 
 As a researcher, I tried to keep all the hyperparameter values fixed. But for applying the code to your application, manually checking which training epoch generating the best results is recommended. Also, in this implementation, we do not use a single GAN trick (not even BatchNorm). But for improving image generation quality, I recommend you use them.
@@ -76,15 +82,7 @@ From smiling to neutral. (Turn smiling attribute off)
 ```
 ![Smiling to neutral](./results/ian_to_no_smiling.jpg)
 
-
-
 ### Example Results
-
-Left: Input foggy images. Right: Output sunny images. Learning was conducted using SYNTHIA dataset. For videos in the original resolution, check out https://www.youtube.com/watch?v=E6exDXjESHA
-
-![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_B.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_F.gif)
-
-![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_L.gif)![](./docs/Fog2Summer_SEQS-02-Stereo_Left-Omni_R.gif)
 
 [1] thermal IR image to color image translation (Left, input and right, translation.)
 ![](./docs/ir2vis.jpg)
@@ -99,6 +97,7 @@ Left: Input foggy images. Right: Output sunny images. Learning was conducted usi
 ![](./docs/day2night.jpg)
 
 ![](./docs/face_visualization.jpg)
+
 
 ### One Example
 
