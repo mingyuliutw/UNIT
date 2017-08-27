@@ -18,7 +18,7 @@ parser.add_option('--resume', type=int, help="resume training?", default=0)
 parser.add_option('--config',
                   type=str,
                   help="net configuration",
-                  default="../exps/covaegan/svhn2mnist_v11.yaml")
+                  default="../exps/covaegan/da_svhn2mnist.yaml")
 parser.add_option('--log',
                   type=str,
                   help="log path",
