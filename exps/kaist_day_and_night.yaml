@@ -1,0 +1,33 @@
+# Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
+# Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
+train:
+  snapshot_save_iterations: 5000 # How often do you want to save trained models
+  image_save_iterations: 100 # How often do you want to save output images during training
+  display: 1 # How often do you want to log the training stats
+  snapshot_prefix: ../outputs/kaist_day_and_night/kaist_day_and_night # Where do you want to save the outputs
+  hyperparameters:
+    vae_enc_w: 1.0e-05  # weight on the KL divergence loss
+    vae_ll_w: 1.0e-04   # weight on the L1 reconstruction loss
+    gan_w: 1.0          # weight on the adversarial loss
+    tv_w: 0             # total variation norm weight
+    batch_size: 1       # image batch size per domain
+    ch: 64              # base channel number per layer
+    max_iterations: 100000 # maximum number of training epochs
+    context: 1          # Use y coordinates or not, 0->NO, 1->Yes
+  datasets:
+    a: # Domain 1 dataset
+      channels: 3       # RGB -> 3 channels, Grayscale -> 1 channel
+      scale: 0          # Scale image or not. O -> no scaling
+      image_size: 512   # crop image size, make sure it is power 2 and smaller than the image
+      class_name: dataset_image
+      root: ../datasets/kaist_multi/
+      folder: images/
+      list: images/Day2Night/train_all_day.txt
+    b: # Domain 2 dataset
+      channels: 3
+      scale: 0
+      image_size: 512
+      class_name: dataset_image
+      root: ../datasets/kaist_multi/
+      folder: images/
+      list: images/Day2Night/train_all_night.txt

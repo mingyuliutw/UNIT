@@ -1,0 +1,33 @@
+# Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
+# Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
+train:
+  snapshot_save_iterations: 100  # How often do you want to save trained models
+  image_save_iterations: 500     # How often do you want to save output images during training
+  display: 10                    # How often do you want to log the training stats
+  snapshot_prefix: /data/projects/unit_release/outputs/covaegan/svhn2mnist_r01/svhn2mnist_r01 # Where do you want to save the outputs
+  hyperparameters:
+    trainer: CoVAEGAN4DATrainer # CoVAE-GAN for domain adaptation
+    gen: CoVAE32x32
+    dis: CoDis32x32
+    gen_ch: 96         # base channel number per layer
+    dis_ch: 64         # base channel number per layer
+    vae_enc_w: 0.0001  # weight on the KL divergence loss
+    vae_ll_w: 0.001    # weight on the L1 reconstruction loss
+    feature_w: 0.0001  # weight on discriminator feature matching
+    cls_w: 10.0        # weight on classification accuracy
+    gan_w: 1.0         # weight on the adversarial loss
+    batch_size: 64     # image batch size per domain
+    test_batch_size: 100
+    max_iterations: 200000 # maximum number of training epochs
+    input_dim_a: 3
+    input_dim_b: 1
+  datasets:
+    train_a: # Domain 1 dataset
+      class_name: dataset_svhn_extra # dataset class
+      root: /data/projects/unit_release/datasets/svhn/ # dataset root location
+    train_b: # Domain 2 dataset
+      class_name: dataset_mnist32x32_train_w_inv # dataset class
+      root: /data/projects/unit_release/datasets/mnist/ # dataset root location
+    test_b: # Domain 1 dataset
+      class_name: dataset_mnist32x32_test # dataset class
+      root: /data/projects/unit_release/datasets/mnist/ # dataset root location

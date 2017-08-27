@@ -4,3 +4,5 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 """
 
 from dataset_image import *
+from dataset_svhn import *
+from dataset_mnist import *

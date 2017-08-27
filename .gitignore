@@ -7,3 +7,4 @@ dgx/scripts/
 notebooks/.ipynb_checkpoints/*
 *.zip
 logs/
+*.pkl
