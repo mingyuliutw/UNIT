@@ -38,7 +38,7 @@ train:
     train_a: # Domain 1 dataset
       channels: 3       # image channel number
       scale: 1.0        # scaling factor for scaling image before processing
-      crop_image_size: 132 # crop image size
+      crop_image_size: 128 # crop image size
       class_name: dataset_celeba           # dataset class name
       root: ../datasets/celeba/    # dataset folder location
       folder: img_align_crop_resize_celeba/
@@ -46,7 +46,7 @@ train:
     train_b: # Domain 2 dataset
       channels: 3       # image channel number
       scale: 1.0        # scaling factor for scaling image before processing
-      crop_image_size: 132 # crop image size
+      crop_image_size: 128 # crop image size
       class_name: dataset_celeba           # dataset class name
       root: ../datasets/celeba/    # dataset folder location
       folder: img_align_crop_resize_celeba/
