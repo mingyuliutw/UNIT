@@ -1,10 +1,10 @@
-*.pyc
 outputs/
 data/
+logs/
 .idea/
 dgx/scripts/
-*.tar.gz
 notebooks/.ipynb_checkpoints/*
+*.tar.gz
 *.zip
-logs/
 *.pkl
+*.pyc

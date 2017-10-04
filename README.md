@@ -1,16 +1,13 @@
-## PyTorch Implementation of our Coupled VAE-GAN algorithm for Unsupervised Image-to-Image Translation
+## PyTorch Implementation of the Coupled GAN algorithm for Unsupervised Image-to-Image Translation
 
 ### License
 
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode). 
 
+### Paper
 
-### General
-This is a PyTorch implementation of the Coupled VAE-GAN (CoVAE-GAN) algorithm for Unsupervised Image-to-Image Translation. 
-For more details please refer to our [paper](https://arxiv.org/abs/1703.00848).
-
-Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation Networks" arXiv:1703.00848 2017
+[Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation Networks" NIPS 2017](https://arxiv.org/abs/1703.00848)
 
 Please cite our paper if this software is used in your publications.
 

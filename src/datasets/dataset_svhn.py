@@ -11,6 +11,7 @@ import torch.utils.data as data
 import torch
 import urllib
 
+
 class dataset_svhn_extra(data.Dataset):
 # train 73,257, extra 531,131, test, 26,032
   def __init__(self, specs):
@@ -68,3 +69,7 @@ class dataset_svhn_test(dataset_svhn_extra):
     self.num = self.data.shape[0]
 
 
+class dataset_svhn_extra_no_label(dataset_svhn_extra):
+  def __getitem__(self, index):
+    img = self.data[index, ::]
+    return img
