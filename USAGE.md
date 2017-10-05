@@ -69,14 +69,20 @@ pip install tensorboard
 
 3. Setup the yaml file. Check out <exps/unit/blondhair.yaml>
 
-4. Do training
+4. Go to <src> and do training
      ```
     python cocogan_train.py --config ../exps/unit/blondhair.yaml --log ../logs
     ```
-5. Resume training 
+5. Go to <src> and do resume training 
      ```
     python cocogan_train.py --config ../exps/unit/blondhair.yaml --log ../logs --resume 1
     ```
     
 6. Intermediate image outputs and model binary files are in <outputs/unit/blondhair>
 
+#### SVHN2MNIST Adaptation
+
+1. Go to <src> and execute
+     ```
+    python cocogan_train_domain_adaptation.py --config ../exps/unit/svhn2mnist.yaml --log ../logs
+    ```
