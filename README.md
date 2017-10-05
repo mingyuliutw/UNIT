@@ -14,11 +14,12 @@ Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation 
 
 #### Result Videos
 
+More image results are available in the [Google Photo Album](https://photos.app.goo.gl/5x7oIifLh2BVJemb2).
+
 ![](./docs/snowy2summery.gif)
 ![](./docs/day2night.gif)
 ![](./docs/dog_breed.gif)
 ![](./docs/cat_species.gif)
-
 
 - [Snowy2Summery-01](https://youtu.be/9VC0c3pndbI)
 - [Snowy2Summery-02](https://youtu.be/eUBiiBS1mj0)
