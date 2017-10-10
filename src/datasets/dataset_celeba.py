@@ -40,8 +40,8 @@ class dataset_celeba(data.Dataset):
     else:
       if np.random.rand(1) > 0.5:
         img = cv2.flip(img, 1)
-      x_offset = np.int32(np.random.randint(0, w - self.image_size + 1, 1))
-      y_offset = np.int32(np.random.randint(0, h - self.image_size + 1, 1))
+      x_offset = np.int32(np.random.randint(0, w - self.image_size + 1, 1))[0]
+      y_offset = np.int32(np.random.randint(0, h - self.image_size + 1, 1))[0]
     crop_img = img[y_offset:(y_offset + self.image_size), x_offset:(x_offset + self.image_size), :]
     return crop_img
 
