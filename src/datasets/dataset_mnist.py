@@ -45,8 +45,7 @@ class dataset_mnist32x32_train(data.Dataset):
     # images = np.concatenate((images, images, images), axis=1)
     if self.use_inversion == 1:
       images = np.concatenate((images, 1 - images), axis=0)
-    images = 1 - images
-    labels = np.concatenate((labels, labels), axis=0)
+      labels = np.concatenate((labels, labels), axis=0)   
     images = (images - 0.5) * 2
     return np.float32(images), labels
 
