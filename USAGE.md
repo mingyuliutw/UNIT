@@ -80,6 +80,7 @@ pip install tensorboard
     
 6. Intermediate image outputs and model binary files are in <outputs/unit/blondhair>
 
+For more pretrained models, please check out the google drive folder [Pretrained models](https://drive.google.com/open?id=0BwpOatrZwxK6UGtheHgta1F5d28).
 #### SVHN2MNIST Adaptation
 
 1. Go to <src> and execute
