@@ -96,8 +96,8 @@ class dataset_imagenet_image(dataset_image):
     img = np.float32(img)
     h, w, c = img.shape
     if test == True:
-      x_offset = np.int((w - self.crop_image_width) / 2)[0]
-      y_offset = np.int((h - self.crop_image_height) / 2)[0]
+      x_offset = np.int((w - self.crop_image_width) / 2)
+      y_offset = np.int((h - self.crop_image_height) / 2)
     else:
       if np.random.rand(1) > 0.5:
         img = cv2.flip(img, 1)
