@@ -49,4 +49,7 @@ From the first row to the fourth row, we show example results on day to night, s
 
 Please go to the [user manual page](USAGE.md)
 
+### Media coverage
+
+- [Sohu technology news](http://it.sohu.com/20171006/n516267266.shtml)
 
