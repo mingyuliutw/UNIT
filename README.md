@@ -12,6 +12,9 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 #### Two Minute Paper Summary
 [![](./docs/two-minute-paper.png)](https://youtu.be/dqxqbvyOnMY) (We thank the Two Minute Papers channel for summarizing our work.)
 
+#### The Shared Latent Space Assumption
+[![](./docs/shared-latent-space.png)](https://www.youtube.com/watch?v=nlyXoX2aIek)
+
 #### Result Videos
 
 More image results are available in the [Google Photo Album](https://photos.app.goo.gl/5x7oIifLh2BVJemb2).
