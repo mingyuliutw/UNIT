@@ -10,7 +10,7 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 [Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation Networks" NIPS 2017 Spotlight, arXiv:1703.00848 2017](https://arxiv.org/abs/1703.00848)
 
 #### Two Minute Paper Summary
-[![(./docs/two-minute-paper.png)]](https://youtu.be/dqxqbvyOnMY) (We thank the Two Minute Papers channel for summarizing our work.)
+[![](./docs/two-minute-paper.png)](https://youtu.be/dqxqbvyOnMY) (We thank the Two Minute Papers channel for summarizing our work.)
 
 #### Result Videos
 
