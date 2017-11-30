@@ -42,7 +42,7 @@ From the first row to the fourth row, we show example results on day to night, s
 
 #### Cat Species Image Translation
 
-![](./docs/dog_trans.jpg)
+![](./docs/cat_trans.jpg)
 
 #### Attribute-based Face Image Translation
 
