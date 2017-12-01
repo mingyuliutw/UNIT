@@ -18,6 +18,7 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 #### Result Videos
 
 More image results are available in the [Google Photo Album](https://photos.app.goo.gl/5x7oIifLh2BVJemb2).
+Left: Input. Right: Generated.
 
 ![](./docs/snowy2summery.gif)
 ![](./docs/day2night.gif)
