@@ -37,7 +37,9 @@ More image results are available in the [Google Photo Album](https://photos.app.
 - [Translation Between 6 cat species](https://youtu.be/Bwq7BmQ1Vbc)
 
 #### Street Scene Image Translation
-From the first row to the fourth row, we show example results on day to night, sunny to rainy, summery to snowy, and real to synthetic image translation (two directions). For each image pair, left is the input image; right is the translated image.
+From the first row to the fourth row, we show example results on day to night, sunny to rainy, summery to snowy, and real to synthetic image translation (two directions). 
+
+For each image pair, *left is the input image*; **right is the machine generated image.**
 
 ![](./docs/street_scene.jpg)
 
