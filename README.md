@@ -19,9 +19,12 @@ Licensed under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses
 
 More image results are available in the [Google Photo Album](https://photos.app.goo.gl/5x7oIifLh2BVJemb2).
 
-Left: Input. Right: Generated.
+**Left: input. Right: machine generated.**
 
 ![](./docs/snowy2summery.gif)
+
+**Left: input. Right: machine generated.**
+
 ![](./docs/day2night.gif)
 ![](./docs/dog_breed.gif)
 ![](./docs/cat_species.gif)
