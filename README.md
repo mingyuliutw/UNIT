@@ -41,19 +41,19 @@ From the first row to the fourth row, we show example results on day to night, s
 
 For each image pair, *left is the input image*; **right is the machine generated image.**
 
-![](./docs/street_scene.jpg)
+![](./docs/street_scene.png)
 
 #### Dog Breed Image Translation
 
-![](./docs/dog_trans.jpg)
+![](./docs/dog_trans.png)
 
 #### Cat Species Image Translation
 
-![](./docs/cat_trans.jpg)
+![](./docs/cat_trans.png)
 
 #### Attribute-based Face Image Translation
 
-![](./docs/faces.jpg)
+![](./docs/faces.png)
 
 ### Code usage
 
