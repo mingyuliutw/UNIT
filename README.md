@@ -59,7 +59,4 @@ For each image pair, *left is the input image*; **right is the machine generated
 
 Please go to the [user manual page](USAGE.md)
 
-### Media coverage
-
-- [Sohu technology news](http://it.sohu.com/20171006/n516267266.shtml)
 
