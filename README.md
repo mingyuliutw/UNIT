@@ -1,4 +1,4 @@
-## PyTorch Implementation of the Coupled GAN algorithm for Unsupervised Image-to-Image Translation
+## UNIT: UNsupervised Image-to-image Translation
 
 ### License
 
