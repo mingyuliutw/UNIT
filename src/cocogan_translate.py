@@ -3,6 +3,7 @@
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
+from __future__ import print_function
 from common import *
 import sys
 import os
@@ -55,7 +56,7 @@ def main(argv):
   # trainer.gen.eval()
 
   for image_name in image_list:
-    print image_name
+    print(image_name)
     full_img_name = os.path.join(root, folder, image_name)
     img = data._load_one_image(full_img_name,test=True)
     raw_data = img.transpose((2, 0, 1))  # convert to HWC
