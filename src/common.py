@@ -38,7 +38,7 @@ def write_html(filename, iterations, image_save_iterations, image_directory, all
   <html>
   <head>
     <title>Experiment name = UnitNet</title>
-    <meta content="1" http-equiv="reflesh">
+    <meta content="1" http-equiv="refresh">
   </head>
   <body>
   ''')
