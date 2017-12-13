@@ -7,7 +7,7 @@ import numpy as np
 
 def gaussian_weights_init(m):
     classname = m.__class__.__name__
-    if classname.find('Conv') != -1 and classname.find('Conv') == 0:
+    if classname.startswith('Conv'):
         # print m.__class__.__name__
         m.weight.data.normal_(0.0, 0.02)
 
