@@ -1,9 +1,13 @@
-## UNIT: UNsupervised Image-to-image Translation
+## UNIT: UNsupervised Image-to-image Translation Networks
 
 ### License
 
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). 
+
+### Code usage
+
+Please check out the [user manual page](USAGE.md).
 
 ### Paper
 
@@ -55,8 +59,6 @@ For each image pair, *left is the input image*; **right is the machine generated
 
 ![](./docs/faces.png)
 
-### Code usage
 
-Please go to the [user manual page](USAGE.md)
 
 

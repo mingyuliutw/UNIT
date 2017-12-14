@@ -1,6 +1,6 @@
 
 
-## PyTorch Implementation of the Coupled GAN algorithm for Unsupervised Image-to-Image Translation
+## UNIT: UNsupervised Image-to-image Translation Networks
 
 ### License
 
@@ -23,6 +23,15 @@ conda install pytorch torchvision cuda80 -c soumith
 conda install -c anaconda yaml=0.1.6
 conda install -c menpo opencv=2.4.11
 pip install tensorboard
+```
+
+#### Python3
+
+```
+conda install -y pytorch torchvision cuda90 -c pytorch
+conda install -y -c anaconda pip 
+conda install -y -c menpo opencv3
+conda install -y -c anaconda yaml
 ```
 
 ### Example Usage
