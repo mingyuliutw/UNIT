@@ -4,7 +4,11 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 """
 
 from __future__ import print_function
-import cPickle
+import sys
+if sys.version_info[0] >= 3:
+  import _pickle as cPickle
+else:
+  import cPickle
 import gzip
 import cv2
 import os

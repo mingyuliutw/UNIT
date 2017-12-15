@@ -36,8 +36,10 @@ def main(argv):
   batch_size = config.hyperparameters['batch_size']
   max_iterations = config.hyperparameters['max_iterations']
 
-  trainer = []
-  exec ("trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer'])
+  cmd = "trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer']
+  local_dict = locals()
+  exec(cmd,globals(),local_dict)
+  trainer = local_dict['trainer']
   trainer.cuda(opts.gpu)
 
   iterations = 0

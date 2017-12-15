@@ -3,7 +3,7 @@
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
-from common_net import *
+from .common_net import *
 
 # Coupled discriminator model for digit classification
 class CoDis32x32(nn.Module):

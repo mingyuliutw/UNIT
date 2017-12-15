@@ -47,8 +47,12 @@ def main(argv):
   image_list = [x.strip().split(' ')[0] for x in content]
   image_list.sort()
 
-  trainer = []
-  exec ("trainer=%s(hyperparameters)" % hyperparameters['trainer'])
+
+  cmd = "trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer']
+  local_dict = locals()
+  exec(cmd,globals(),local_dict)
+  trainer = local_dict['trainer']
+
 
   # Prepare network
   trainer.gen.load_state_dict(torch.load(opts.weights))

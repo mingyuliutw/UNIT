@@ -2,11 +2,11 @@
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
+from .init import *
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
 import cv2
-from init import *
 import numpy as np
 
 class GaussianSmoother(nn.Module):

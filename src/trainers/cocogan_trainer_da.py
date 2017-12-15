@@ -2,9 +2,9 @@
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
-from cocogan_nets_da import *
-from init import *
-from helpers import get_model_list, _compute_fake_acc2, _compute_true_acc2
+from .cocogan_nets_da import *
+from .init import *
+from .helpers import get_model_list, _compute_fake_acc2, _compute_true_acc2
 import torch
 import torch.nn as nn
 import os

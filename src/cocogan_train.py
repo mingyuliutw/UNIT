@@ -4,13 +4,14 @@
 Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
-import sys
+from __future__ import print_function
+from common import get_data_loader, prepare_snapshot_and_image_folder, write_html, write_loss
 from tools import *
 from trainers import *
 from datasets import *
+import sys
 import torchvision
-import itertools
-from common import *
+from itertools import izip
 import tensorboard
 from tensorboard import summary
 from optparse import OptionParser
@@ -35,8 +36,11 @@ def main(argv):
   train_loader_a = get_data_loader(config.datasets['train_a'], batch_size)
   train_loader_b = get_data_loader(config.datasets['train_b'], batch_size)
 
-  trainer = []
-  exec ("trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer'])
+  cmd = "trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer']
+  local_dict = locals()
+  exec(cmd,globals(),local_dict)
+  trainer = local_dict['trainer']
+
   # Check if resume training
   iterations = 0
   if opts.resume == 1:
@@ -49,7 +53,7 @@ def main(argv):
   image_directory, snapshot_directory = prepare_snapshot_and_image_folder(config.snapshot_prefix, iterations, config.image_save_iterations)
 
   for ep in range(0, MAX_EPOCHS):
-    for it, (images_a, images_b) in enumerate(itertools.izip(train_loader_a,train_loader_b)):
+    for it, (images_a, images_b) in enumerate(izip(train_loader_a,train_loader_b)):
       if images_a.size(0) != batch_size or images_b.size(0) != batch_size:
         continue
       images_a = Variable(images_a.cuda(opts.gpu))

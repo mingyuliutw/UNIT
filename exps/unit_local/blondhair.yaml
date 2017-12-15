@@ -1,0 +1,54 @@
+# Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.
+# Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+train:
+  snapshot_save_iterations: 5000 # How often do you want to save trained models
+  image_save_iterations: 2500 # How often do you want to save output images during training
+  image_display_iterations: 100
+  display: 1 # How often do you want to log the training stats
+  snapshot_prefix: /cosmo/projects/unit_release/outputs/unit_release/celeba/blondhair/blondhair # Where do you want to save the outputs
+  hyperparameters:
+    trainer: COCOGANTrainer
+    lr: 0.0001             # learning rate
+    ll_direct_link_w: 100  # weight on the self L1 reconstruction loss
+    kl_direct_link_w: 0.1 # weight on VAE encoding loss
+    ll_cycle_link_w: 100   # weight on the cycle L1 reconstruction loss
+    kl_cycle_link_w: 0.1  # weight on the cycle L1 reconstruction loss
+    gan_w: 10              # weight on the adversarial loss
+    batch_size: 1          # image batch size per domain
+    max_iterations: 2000000 # maximum number of training epochs
+    gen:
+      name: COCOResGen2
+      ch: 64               # base channel number per layer
+      input_dim_a: 3
+      input_dim_b: 3
+      n_enc_front_blk: 3
+      n_enc_res_blk: 3
+      n_enc_shared_blk: 1
+      n_gen_shared_blk: 1
+      n_gen_res_blk: 3
+      n_gen_front_blk: 3
+      res_dropout_ratio: 0.5
+    dis:
+      name: COCOSharedDis
+      ch: 64
+      input_dim_a: 3
+      input_dim_b: 3
+      n_front_layer: 2
+      n_shared_layer: 4
+  datasets:
+    train_a: # Domain 1 dataset
+      channels: 3       # image channel number
+      scale: 1.0        # scaling factor for scaling image before processing
+      crop_image_size: 128 # crop image size
+      class_name: dataset_celeba           # dataset class name
+      root: /cosmo/datasets/celeba/    # dataset folder location
+      folder: img_align_crop_resize_celeba/
+      list_name: lists/Blond_Hair_ON.txt
+    train_b: # Domain 2 dataset
+      channels: 3       # image channel number
+      scale: 1.0        # scaling factor for scaling image before processing
+      crop_image_size: 128 # crop image size
+      class_name: dataset_celeba           # dataset class name
+      root: /cosmo/datasets/celeba/    # dataset folder location
+      folder: img_align_crop_resize_celeba/
+      list_name: lists/Blond_Hair_OFF.txt

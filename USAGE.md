@@ -14,25 +14,21 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 Please cite our paper if this software is used in your publications.
 
 ### Dependency
+
+
 pytorch, yaml, opencv, and tensorboard (from https://github.com/dmlc/tensorboard).
 
-If you use Anaconda2, then the following commands can be used to install all the dependencies.
 
+The code base was developed using Python 2 in Anaconda2 with the following packages.
 ```
 conda install pytorch torchvision cuda80 -c soumith
-conda install -c anaconda yaml=0.1.6
-conda install -c menpo opencv=2.4.11
-pip install tensorboard
+conda install -y -c anaconda pip; 
+conda install -y -c anaconda yaml;
+conda install -y -c menpo opencv;
+pip install tensorboard;
 ```
 
-#### Python3
-
-```
-conda install -y pytorch torchvision cuda90 -c pytorch
-conda install -y -c anaconda pip 
-conda install -y -c menpo opencv3
-conda install -y -c anaconda yaml
-```
+We also provide a [Dockerfile](Dockerfile) for building an environment for running the UNIT code.
 
 ### Example Usage
 
