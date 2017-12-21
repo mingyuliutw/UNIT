@@ -34,10 +34,24 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
 
 #### Testing 
 
+###### Synthetic-to-real and Real-to-synthetic Translation
+1. Download the pretrained model in [link](https://drive.google.com/open?id=1iTQFpyMmMLPe1eY2q-7g-3b5OSlYqc6X) to <outputs/unit/street_scene>
+
+2. Go to <src> and run the following command to translate a real image to a synthetic image.
+    ```
+    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 0 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/freiburg_000000_000021_leftImg8bit.png --output_image_name ../results/synthetic_freiburg_000000_000021_leftImg8bit.png
+    ```
+    
+    Go to <src> and run the following command to translate a synthetic image to a real image.
+    
+    ```
+    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 1 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/synthia_000445.png --output_image_name ../results/synthetic_synthia_000445.png
+    ```
+
 ###### Cat to Tiger Translation
 1. Download the pretrained model in [link](https://drive.google.com/open?id=0BwpOatrZwxK6V1Bwai1GZFQ2Q0k) to <outputs/unit/cat2tiger>
 
-2. Go to <src> and run to translate the first cat and second cat to tigers
+2. Go to <src> and run the following command to translate cats to tigers
     ```
     python cocogan_translate_one_image.py --config ../exps/unit/cat2tiger.yaml --a2b 1 --weights ../outputs/unit/cat2tiger/cat2tiger_gen_00500000.pkl --image_name ../images/cat001.jpg --output_image_name ../results/cat2tiger_cat001.jpg
     ```
@@ -52,7 +66,7 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
 ###### Corgi to Husky Translation
 1. Download the pretrained model in [link](https://drive.google.com/open?id=0BwpOatrZwxK6NktUSWZRNE14Ym8) to <outputs/unit/corgi2husky>
 
-2. Go to <src> and run to translate the first cat and second cat to tigers
+2. Go to <src> and run the following command to translate corgis to huskies
     ```
     python cocogan_translate_one_image.py --config ../exps/unit/corgi2husky.yaml --a2b 1 --weights ../outputs/unit/corgi2husky/corgi2husky_gen_00500000.pkl --image_name ../images/corgi001.jpg --output_image_name ../results/corgi2husky_corgi001.jpg
     ```

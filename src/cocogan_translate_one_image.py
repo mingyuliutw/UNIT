@@ -38,11 +38,7 @@ def main(argv):
     dataset = config.datasets['train_b']
   data = []
   exec ("data = %s(dataset)" % dataset['class_name'])
-
-  cmd = "trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer']
-  local_dict = locals()
-  exec(cmd,globals(),local_dict)
-  trainer = local_dict['trainer']
+  exec("trainer=%s(config.hyperparameters)" % config.hyperparameters['trainer'])
 
   # Prepare network
   trainer.gen.load_state_dict(torch.load(opts.weights))
