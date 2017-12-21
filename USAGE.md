@@ -45,7 +45,7 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
     Go to <src> and run the following command to translate a synthetic image to a real image.
     
     ```
-    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 1 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/synthia_000445.png --output_image_name ../results/synthetic_synthia_000445.png
+    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 1 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/synthia_000898.png --output_image_name ../results/synthetic_synthia_000898.png
     ```
 
 ###### Cat to Tiger Translation
