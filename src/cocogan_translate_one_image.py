@@ -43,7 +43,7 @@ def main(argv):
   # Prepare network
   trainer.gen.load_state_dict(torch.load(opts.weights))
   trainer.cuda(opts.gpu)
-  # trainer.gen.eval()
+  trainer.gen.eval()
 
 
   full_img_name = opts.image_name

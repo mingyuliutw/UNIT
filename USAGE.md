@@ -34,20 +34,6 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
 
 #### Testing 
 
-###### Synthetic-to-real and Real-to-synthetic Translation
-1. Download the pretrained model in [link](https://drive.google.com/open?id=1iTQFpyMmMLPe1eY2q-7g-3b5OSlYqc6X) to <outputs/unit/street_scene>
-
-2. Go to <src> and run the following command to translate a real image to a synthetic image.
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 0 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/freiburg_000000_000021_leftImg8bit.png --output_image_name ../results/synthetic_freiburg_000000_000021_leftImg8bit.png
-    ```
-    
-    Go to <src> and run the following command to translate a synthetic image to a real image.
-    
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 1 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/synthia_000898.png --output_image_name ../results/synthetic_synthia_000898.png
-    ```
-
 ###### Cat to Tiger Translation
 1. Download the pretrained model in [link](https://drive.google.com/open?id=0BwpOatrZwxK6V1Bwai1GZFQ2Q0k) to <outputs/unit/cat2tiger>
 
@@ -74,10 +60,21 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
     python cocogan_translate_one_image.py --config ../exps/unit/corgi2husky.yaml --a2b 0 --weights ../outputs/unit/corgi2husky/corgi2husky_gen_00500000.pkl --image_name ../images/husky001.jpg --output_image_name ../results/husky2corgi_husky001.jpg
     ```
 
-4. Check out the results in <results>. Left: Input. Right: Output
+3. Check out the results in <results>. Left: Input. Right: Output
  - ![](./results/corgi2husky_corgi001.jpg)
  - ![](./results/husky2corgi_husky001.jpg)
  
+###### Synthetic-to-real and Real-to-synthetic Translation
+1. Download the pretrained model in [link](https://drive.google.com/open?id=1iTQFpyMmMLPe1eY2q-7g-3b5OSlYqc6X) to <outputs/unit/street_scene>
+
+2. Go to <src> and run the following command to translate a real image to a synthetic image.
+    ```
+    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 0 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/freiburg_000000_000021_leftImg8bit.png --output_image_name ../results/synthetic_freiburg_000000_000021_leftImg8bit.png
+    ```
+    
+3. Check out the results in <results>. Left: Input. Right: Output
+ - ![](./results/synthetic_freiburg_000000_000021_leftImg8bit.png)
+
 #### Training
 1. Download the aligned and crop version of the [CelebA dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) to <datasets/celeba>. 
 
