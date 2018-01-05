@@ -29,7 +29,7 @@ train:
       class_name: dataset_mnist32x32_train # dataset class
       root: /data/projects/unit_release/datasets/mnist/ # dataset root location
       use_inversion: 1
-    test_b: # Domain 1 dataset
+    test_b: # Domain 2 dataset
       class_name: dataset_mnist32x32_test # dataset class
       root: ../datasets/mnist/ # dataset root location
       use_inversion: 0
