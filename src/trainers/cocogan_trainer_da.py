@@ -37,8 +37,8 @@ class COCOGANDAContextTrainer(nn.Module):
 
   def _create_xy_image(self, width=32):
     coordinates = list(itertools.product(range(width), range(width)))
-    arr = (np.reshape(np.asarray(coordinates), newshape=[width, width, 2]) - width/2 ) / (width/2)
-    new_map = np.transpose(np.float32(arr), [2, 0, 1])
+    arr = (np.reshape(np.float32(np.asarray(coordinates)), newshape=[width, width, 2]) - width/2 ) / (width/2)
+    new_map = np.transpose(arr, [2, 0, 1])
     xy = Variable(torch.from_numpy(new_map), requires_grad=False)
     return xy
 

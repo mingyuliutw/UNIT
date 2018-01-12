@@ -18,7 +18,7 @@ parser.add_option('--resume', type=int, help="resume training?", default=0)
 parser.add_option('--config',
                   type=str,
                   help="net configuration",
-                  default="../exps/unit/svhn2mnist/svhn2mnist_v01.yaml")
+                  default="../exps/unit/svhn2mnist.yaml")
 parser.add_option('--log',
                   type=str,
                   help="log path",
