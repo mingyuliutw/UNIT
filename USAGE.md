@@ -23,7 +23,7 @@ The code base was developed using Python 2 in Anaconda2 with the following packa
 ```
 conda install pytorch torchvision cuda80 -c soumith
 conda install -y -c anaconda pip; 
-conda install -y -c anaconda yaml;
+conda install -y -c anaconda pyyaml;
 conda install -y -c menpo opencv;
 pip install tensorboard;
 ```
