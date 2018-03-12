@@ -26,7 +26,7 @@ conda install pytorch torchvision cuda80 -c soumith
 conda install -y -c anaconda pip; 
 conda install -y -c anaconda yaml;
 conda install -y -c menpo opencv;
-pip install tensorboard;
+pip install tensorboard==1.0.0a6;
 ```
 
 We also provide a [Dockerfile](Dockerfile) for building an environment for running the UNIT code.
