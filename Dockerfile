@@ -20,7 +20,7 @@ RUN conda install -y pytorch torchvision cuda80 -c pytorch
 RUN conda install -y -c anaconda pip 
 RUN conda install -y -c menpo opencv
 RUN conda install -y -c anaconda yaml
-RUN pip install tensorboard
+RUN pip install tensorboard==1.0.0a3
 
 
 
