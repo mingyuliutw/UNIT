@@ -1,6 +1,6 @@
 [![License CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC4.0-blue.svg)](https://raw.githubusercontent.com/NVIDIA/FastPhotoStyle/master/LICENSE.md)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-green.svg)
-
+![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 ## UNIT: UNsupervised Image-to-image Translation Networks
 
 ### License
@@ -8,25 +8,18 @@
 Copyright (C) 2018 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). 
 
-### Paper
-
-[Ming-Yu Liu, Thomas Breuel, Jan Kautz, "Unsupervised Image-to-Image Translation Networks" NIPS 2017](https://arxiv.org/abs/1703.00848)
-
-Please cite our paper if this software is used in your publications.
-
 ### Dependency
 
 
-pytorch, yaml, opencv, and tensorboard (from https://github.com/dmlc/tensorboard).
+pytorch, yaml, tensorboard (from https://github.com/dmlc/tensorboard), and tensorboardX (from https://github.com/lanpa/tensorboard-pytorch).
 
 
-The code base was developed using Python 2 in Anaconda2 with the following packages.
+The code base was developed using Anaconda with the following packages.
 ```
 conda install pytorch torchvision cuda80 -c soumith
 conda install -y -c anaconda pip; 
 conda install -y -c anaconda yaml;
-conda install -y -c menpo opencv;
-pip install tensorboard==1.0.0a6;
+pip install tensorboard tensorboardX;
 ```
 
 We also provide a [Dockerfile](Dockerfile) for building an environment for running the UNIT code.
@@ -35,72 +28,29 @@ We also provide a [Dockerfile](Dockerfile) for building an environment for runni
 
 #### Testing 
 
-###### Cat to Tiger Translation
-1. Download the pretrained model in [link](https://drive.google.com/open?id=0BwpOatrZwxK6V1Bwai1GZFQ2Q0k) to <outputs/unit/cat2tiger>
+First, download the [pretrained models](https://drive.google.com/open?id=1R9MH_p8tDmUsIAjKCu-jgoilWgANfObx) and put them in `models` folder.
 
-2. Go to <src> and run the following command to translate cats to tigers
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit/cat2tiger.yaml --a2b 1 --weights ../outputs/unit/cat2tiger/cat2tiger_gen_00500000.pkl --image_name ../images/cat001.jpg --output_image_name ../results/cat2tiger_cat001.jpg
-    ```
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit/cat2tiger.yaml --a2b 1 --weights ../outputs/unit/cat2tiger/cat2tiger_gen_00500000.pkl --image_name ../images/cat002.jpg --output_image_name ../results/cat2tiger_cat002.jpg
-    ```
-
-4. Check out the results in <results>. Left: Input. Right: Output
- - ![](./results/cat2tiger_cat001.jpg)
- - ![](./results/cat2tiger_cat002.jpg)
- 
-###### Corgi to Husky Translation
-1. Download the pretrained model in [link](https://drive.google.com/open?id=0BwpOatrZwxK6NktUSWZRNE14Ym8) to <outputs/unit/corgi2husky>
-
-2. Go to <src> and run the following command to translate corgis to huskies
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit/corgi2husky.yaml --a2b 1 --weights ../outputs/unit/corgi2husky/corgi2husky_gen_00500000.pkl --image_name ../images/corgi001.jpg --output_image_name ../results/corgi2husky_corgi001.jpg
-    ```
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit/corgi2husky.yaml --a2b 0 --weights ../outputs/unit/corgi2husky/corgi2husky_gen_00500000.pkl --image_name ../images/husky001.jpg --output_image_name ../results/husky2corgi_husky001.jpg
-    ```
-
-3. Check out the results in <results>. Left: Input. Right: Output
- - ![](./results/corgi2husky_corgi001.jpg)
- - ![](./results/husky2corgi_husky001.jpg)
- 
-###### Synthetic-to-real and Real-to-synthetic Translation
-1. Download the pretrained model in [link](https://drive.google.com/open?id=1iTQFpyMmMLPe1eY2q-7g-3b5OSlYqc6X) to <outputs/unit/street_scene>
-
-2. Go to <src> and run the following command to translate a real image to a synthetic image.
-    ```
-    python cocogan_translate_one_image.py --config ../exps/unit_local/synthia2cityscape.yaml --a2b 0 --weights ../outputs/unit/street_scene/synthia2cityscape_gen_00250000.pkl --image_name ../images/freiburg_000000_000021_leftImg8bit.png --output_image_name ../results/synthetic_freiburg_000000_000021_leftImg8bit.png
-    ```
+Run the following command to translate GTA5 images to Cityscape images
     
-3. Check out the results in <results>. Left: Input. Right: Output
- - ![](./results/synthetic_freiburg_000000_000021_leftImg8bit.png)
-
+    python test.py --trainer UNIT --config configs/unit_gta2city_list.yaml --input inputs/gta_example.jpg --output_folder outputs/gta2city --checkpoint models/unit_gta2city.pt --a2b 1
+    
+Run the following command to translate Cityscape images to GTA5 images
+    
+    python test.py --trainer UNIT --config configs/unit_gta2city_list.yaml --input inputs/city_example.jpg --output_folder outputs/city2gta --checkpoint models/unit_gta2city.pt --a2b 0    
+ 
 #### Training
-1. Download the aligned and crop version of the [CelebA dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) to <datasets/celeba>. 
 
-2. Go to <datasets/celeba> and crop the middle region of the face images and resize them to 128x128
-    ```
-    python crop_and_resize.py;
-    ```
+1. Download the dataset you want to use. For example, you can use the GTA5 dataset provided by [Richter et al.](https://download.visinf.tu-darmstadt.de/data/from_games/) and Cityscape dataset provided by [Cordts et al.](https://www.cityscapes-dataset.com/).
 
-3. Setup the yaml file. Check out <exps/unit/blondhair.yaml>
+3. Setup the yaml file. Check out `configs/unit_gta2city_folder.yaml` for folder-based dataset organization. Change the `data_root` field to the path of your downloaded dataset. For list-based dataset organization, check out `configs/unit_gta2city_list.yaml`
 
-4. Go to <src> and do training
-     ```
-    python cocogan_train.py --config ../exps/unit/blondhair.yaml --log ../logs
+3. Start training
     ```
-5. Go to <src> and do resume training 
-     ```
-    python cocogan_train.py --config ../exps/unit/blondhair.yaml --log ../logs --resume 1
+    python train.py --trainer UNIT --config configs/unit_gta2city_folder.yaml
     ```
     
-6. Intermediate image outputs and model binary files are in <outputs/unit/blondhair>
+4. Intermediate image outputs and model binary files are stored in `outputs/unit_gta2city_folder`
 
-For more pretrained models, please check out the google drive folder [Pretrained models](https://drive.google.com/open?id=0BwpOatrZwxK6UGtheHgta1F5d28).
-#### SVHN2MNIST Adaptation
+##### Notes
 
-1. Go to <src> and execute
-     ```
-    python cocogan_train_domain_adaptation.py --config ../exps/unit/svhn2mnist.yaml --log ../logs
-    ```
+Note that for learning to translate images at 512x512 resolution, you would need a GPU card with 16GB memory such as Tesla V100. For 256x256 resolution, a GPU with 12GB memory should be sufficient.

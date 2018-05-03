@@ -9,9 +9,13 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 
 ### Code usage
 
-Please check out the [user manual page](USAGE.md).
+-  Please check out the [user manual page](USAGE.md). 
+
+-  For multimodal (or many-to-many) image translation, please check out our new work [MUNIT].(https://github.com/NVlabs/MUNIT).
 
 ### What's new.
+
+- 05-02-2018: We now adapt [MUNIT](https://github.com/NVlabs/MUNIT) code structure. For reproducing experiment results in the NIPS paper, please check out [version_02 branch](https://github.com/mingyuliutw/UNIT/tree/version_02).
 
 - 12-21-2017: Release pre-trained synthia-to-cityscape image translation model. See [USAGE.md](USAGE.md) for usage examples.
 
