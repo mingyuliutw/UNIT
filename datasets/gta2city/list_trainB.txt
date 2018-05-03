@@ -1,0 +1,5 @@
+./aachen_000000_000019_leftImg8bit.jpg
+./aachen_000002_000019_leftImg8bit.jpg
+./aachen_000001_000019_leftImg8bit.jpg
+./aachen_000003_000019_leftImg8bit.jpg
+./aachen_000004_000019_leftImg8bit.jpg
