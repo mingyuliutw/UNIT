@@ -11,7 +11,7 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 
 -  Please check out the [user manual page](USAGE.md). 
 
--  For multimodal (or many-to-many) image translation, please check out our new work [MUNIT].(https://github.com/NVlabs/MUNIT).
+-  For multimodal (or many-to-many) image translation, please check out our new work on  [MUNIT](https://github.com/NVlabs/MUNIT).
 
 ### What's new.
 
