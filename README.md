@@ -9,7 +9,7 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 
 ### Code usage
 
--  Please check out the [user manual page](USAGE.md). 
+-  Please check out our [tutorial](TUTORIAL.md). 
 
 -  For multimodal (or many-to-many) image translation, please check out our new work on  [MUNIT](https://github.com/NVlabs/MUNIT).
 
@@ -17,7 +17,7 @@ Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses
 
 - 05-02-2018: We now adapt [MUNIT](https://github.com/NVlabs/MUNIT) code structure. For reproducing experiment results in the NIPS paper, please check out [version_02 branch](https://github.com/mingyuliutw/UNIT/tree/version_02).
 
-- 12-21-2017: Release pre-trained synthia-to-cityscape image translation model. See [USAGE.md](USAGE.md) for usage examples.
+- 12-21-2017: Release pre-trained synthia-to-cityscape image translation model. See [USAGE.md](TUTORIAL.md) for usage examples.
 
 - 12-14-2017: Added multi-scale discriminators described in the [pix2pixHD](https://arxiv.org/pdf/1711.11585.pdf) paper. To use it simply make the name of the discriminator COCOMsDis.
 

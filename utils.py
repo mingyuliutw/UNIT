@@ -16,6 +16,7 @@ import torchvision.utils as vutils
 import yaml
 import numpy as np
 import torch.nn.init as init
+import time
 # Methods
 # get_all_data_loaders      : primary data loader interface (load trainA, testA, trainB, testB)
 # get_data_loader_list      : list-based data loader
@@ -237,7 +238,7 @@ def vgg_preprocess(batch):
     (r, g, b) = torch.chunk(batch, 3, dim = 1)
     batch = torch.cat((b, g, r), dim = 1) # convert RGB to BGR
     batch = (batch + 1) * 255 * 0.5 # [-1, 1] -> [0, 255]
-    mean = tensortype(batch.data.size())
+    mean = tensortype(batch.data.size()).cuda()
     mean[:, 0, :, :] = 103.939
     mean[:, 1, :, :] = 116.779
     mean[:, 2, :, :] = 123.680
@@ -262,18 +263,81 @@ def weights_init(init_type='gaussian'):
         if (classname.find('Conv') == 0 or classname.find('Linear') == 0) and hasattr(m, 'weight'):
             # print m.__class__.__name__
             if init_type == 'gaussian':
-                init.normal(m.weight.data, 0.0, 0.02)
+                init.normal_(m.weight.data, 0.0, 0.02)
             elif init_type == 'xavier':
-                init.xavier_normal(m.weight.data, gain=math.sqrt(2))
+                init.xavier_normal_(m.weight.data, gain=math.sqrt(2))
             elif init_type == 'kaiming':
-                init.kaiming_normal(m.weight.data, a=0, mode='fan_in')
+                init.kaiming_normal_(m.weight.data, a=0, mode='fan_in')
             elif init_type == 'orthogonal':
-                init.orthogonal(m.weight.data, gain=math.sqrt(2))
+                init.orthogonal_(m.weight.data, gain=math.sqrt(2))
             elif init_type == 'default':
                 pass
             else:
                 assert 0, "Unsupported initialization: {}".format(init_type)
             if hasattr(m, 'bias') and m.bias is not None:
-                init.constant(m.bias.data, 0.0)
+                init.constant_(m.bias.data, 0.0)
 
     return init_fun
+
+
+class Timer:
+    def __init__(self, msg):
+        self.msg = msg
+        self.start_time = None
+
+    def __enter__(self):
+        self.start_time = time.time()
+
+    def __exit__(self, exc_type, exc_value, exc_tb):
+        print(self.msg % (time.time() - self.start_time))
+
+
+def pytorch03_to_pytorch04(state_dict_base):
+    def __conversion_core(state_dict_base):
+        state_dict = state_dict_base.copy()
+        for key, value in state_dict_base.items():
+            if key.endswith(('enc.model.0.norm.running_mean',
+                             'enc.model.0.norm.running_var',
+                             'enc.model.1.norm.running_mean',
+                             'enc.model.1.norm.running_var',
+                             'enc.model.2.norm.running_mean',
+                             'enc.model.2.norm.running_var',
+                             'enc.model.3.model.0.model.1.norm.running_mean',
+                             'enc.model.3.model.0.model.1.norm.running_var',
+                             'enc.model.3.model.0.model.0.norm.running_mean',
+                             'enc.model.3.model.0.model.0.norm.running_var',
+                             'enc.model.3.model.1.model.1.norm.running_mean',
+                             'enc.model.3.model.1.model.1.norm.running_var',
+                             'enc.model.3.model.1.model.0.norm.running_mean',
+                             'enc.model.3.model.1.model.0.norm.running_var',
+                             'enc.model.3.model.2.model.1.norm.running_mean',
+                             'enc.model.3.model.2.model.1.norm.running_var',
+                             'enc.model.3.model.2.model.0.norm.running_mean',
+                             'enc.model.3.model.2.model.0.norm.running_var',
+                             'enc.model.3.model.3.model.1.norm.running_mean',
+                             'enc.model.3.model.3.model.1.norm.running_var',
+                             'enc.model.3.model.3.model.0.norm.running_mean',
+                             'enc.model.3.model.3.model.0.norm.running_var',
+                             'dec.model.0.model.0.model.1.norm.running_mean',
+                             'dec.model.0.model.0.model.1.norm.running_var',
+                             'dec.model.0.model.0.model.0.norm.running_mean',
+                             'dec.model.0.model.0.model.0.norm.running_var',
+                             'dec.model.0.model.1.model.1.norm.running_mean',
+                             'dec.model.0.model.1.model.1.norm.running_var',
+                             'dec.model.0.model.1.model.0.norm.running_mean',
+                             'dec.model.0.model.1.model.0.norm.running_var',
+                             'dec.model.0.model.2.model.1.norm.running_mean',
+                             'dec.model.0.model.2.model.1.norm.running_var',
+                             'dec.model.0.model.2.model.0.norm.running_mean',
+                             'dec.model.0.model.2.model.0.norm.running_var',
+                             'dec.model.0.model.3.model.1.norm.running_mean',
+                             'dec.model.0.model.3.model.1.norm.running_var',
+                             'dec.model.0.model.3.model.0.norm.running_mean',
+                             'dec.model.0.model.3.model.0.norm.running_var',
+                             )):
+                del state_dict[key]
+        return state_dict
+    state_dict = dict()
+    state_dict['a'] = __conversion_core(state_dict_base['a'])
+    state_dict['b'] = __conversion_core(state_dict_base['b'])
+    return state_dict

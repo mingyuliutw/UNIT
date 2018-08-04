@@ -3,7 +3,7 @@ Copyright (C) 2018 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
 from __future__ import print_function
-from utils import get_config, get_data_loader_folder
+from utils import get_config, get_data_loader_folder, pytorch03_to_pytorch04
 from trainer import MUNIT_Trainer, UNIT_Trainer
 import argparse
 from torch.autograd import Variable
@@ -54,10 +54,15 @@ elif opts.trainer == 'UNIT':
 else:
     sys.exit("Only support MUNIT|UNIT")
 
+try:
+    state_dict = torch.load(opts.checkpoint)
+    trainer.gen_a.load_state_dict(state_dict['a'])
+    trainer.gen_b.load_state_dict(state_dict['b'])
+except:
+    state_dict = pytorch03_to_pytorch04(torch.load(opts.checkpoint))
+    trainer.gen_a.load_state_dict(state_dict['a'])
+    trainer.gen_b.load_state_dict(state_dict['b'])
 
-state_dict = torch.load(opts.checkpoint)
-trainer.gen_a.load_state_dict(state_dict['a'])
-trainer.gen_b.load_state_dict(state_dict['b'])
 trainer.cuda()
 trainer.eval()
 encode = trainer.gen_a.encode if opts.a2b else trainer.gen_b.encode # encode function
@@ -66,7 +71,7 @@ decode = trainer.gen_b.decode if opts.a2b else trainer.gen_a.decode # decode fun
 if opts.trainer == 'MUNIT':
     # Start testing
     style_fixed = Variable(torch.randn(opts.num_style, style_dim, 1, 1).cuda(), volatile=True)
-    for i, (images, names) in enumerate(zip(data_loader,image_names)):
+    for i, (images, names) in enumerate(zip(data_loader, image_names)):
         print(names[1])
         images = Variable(images.cuda(), volatile=True)
         content, _ = encode(images)
@@ -86,7 +91,7 @@ if opts.trainer == 'MUNIT':
             vutils.save_image(images.data, os.path.join(opts.output_folder, 'input{:03d}.jpg'.format(i)), padding=0, normalize=True)
 elif opts.trainer == 'UNIT':
     # Start testing
-    for i, (images, names) in enumerate(zip(data_loader,image_names)):
+    for i, (images, names) in enumerate(zip(data_loader, image_names)):
         print(names[1])
         images = Variable(images.cuda(), volatile=True)
         content, _ = encode(images)
