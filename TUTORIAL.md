@@ -11,7 +11,7 @@ Unsupervised image-to-image translation concerns learning an image translation m
 
 ### Algorithm
 
-<img src="https://raw.githubusercontent.com/NVIDIA/UNIT/master/docs/shared-latent-space.png" width="800" title="Assumption"> 
+<img src="https://raw.githubusercontent.com/mingyuliutw/UNIT/master/docs/shared-latent-space.png" width="800" title="Assumption"> 
 
 The unsupervised image-to-image translation problem is an ill-posed problem. It basically aims at discovering the joint distribution from samples of marginal distributions. From the coupling theory in probability, we know there exists infinitely many possible joint distributions that can arrive to two given marginal distributions. To find the target solution, one would have to incorporate the right inductive bias. One has to use additional assumptions. UNIT is based on the shared-latent space assumption as illustrated in the figure above. Basically, it assumes that latent representations of a pair of corresponding images in two different domains share the same latent code. Although we do not have any pairs of corresponding images during training, we assume their existences and utilize network capacity constraint to encourage discovering the true joint distribution. 
  
@@ -89,7 +89,7 @@ The results are stored in `results/gta2city` folder. You should see images like 
     
 | Input Photo | Output Photo |
 |-------------|--------------|
-| <img src="https://raw.githubusercontent.com/NVIDIA/UNIT/master/results/gta2city/input.jpg" width="384" title="Input"> | <img src="https://raw.githubusercontent.com/NVIDIA/UNIT/master/results/gta2city/output.jpg" width="384" title="Output"> |     
+| <img src="https://raw.githubusercontent.com/mingyuliutw/UNIT/master/docs/input.jpg" width="384" title="Input"> | <img src="https://raw.githubusercontent.com/mingyuliutw/UNIT/master/docs/output.jpg" width="384" title="Output"> |     
     
 Run the following command to translate Cityscape images to GTA5 images
     
@@ -99,6 +99,6 @@ Run the following command to translate Cityscape images to GTA5 images
  
 | Input Photo | Output Photo |
 |-------------|--------------|
-| <img src="https://raw.githubusercontent.com/NVIDIA/UNIT/master/results/city2gta/input.jpg" width="384" title="Input"> | <img src="https://raw.githubusercontent.com/NVIDIA/UNIT/master/results/city2gta/output.jpg" width="384" title="Output"> |
+| <img src="https://raw.githubusercontent.com/mingyuliutw/UNIT/master/docs/input.jpg" width="384" title="Input"> | <img src="https://raw.githubusercontent.com/mingyuliutw/UNIT/master/docs/output.jpg" width="384" title="Output"> |
  
  
