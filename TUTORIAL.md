@@ -78,6 +78,14 @@ We provide several training scripts as usage examples. They are located under `s
 
 First, download our pretrained models for the gta2cityscape task and put them in `models` folder.
 
+### Out of memory?
+In case you run out of memory on system to store checkpoints. 
+1. Change the frequency of checkpoint storage in the config file.
+2. Delete all the discriminator and generator model all but last two iterations.
+3. 'df -h ' helps you keep track of current available system memory.
+4. In case, you accidentally delete wrong checkpoints : Go to the trash folder in your system and mv the file from there to required checkpoint folder. 
+In case of linux systems : cd ~/.local/share/Trash (Source: https://askubuntu.com/questions/327943/how-to-open-trash-through-terminal)
+
 #### Pretrained models 
 
 |  Dataset    | Model Link     |
