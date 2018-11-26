@@ -66,6 +66,13 @@ We provide several training scripts as usage examples. They are located under `s
     
 4. Intermediate image outputs and model binary files are stored in `outputs/unit_gta2city_folder`
 
+### Resume from last stopped iteration:
+ ```
+    python train.py --trainer UNIT --config configs/unit_gta2city_folder.yaml --resume
+  ```
+  This will resume training from last stopped iteration.
+  If you get EOF erroe etc it means the last stored iteration may be corrupt so delete it and resume. Example if 50k iteration is corrupt, delete it. Resume option continues from 49k then.
+  Note: --resume option is stored true by default ie mentioning it alone is enough to make it true.
 
 ### Testing
 
