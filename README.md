@@ -2,6 +2,10 @@
 ![Python 2.7](https://img.shields.io/badge/python-2.7-green.svg)
 ## UNIT: UNsupervised Image-to-image Translation Networks
 
+## Imaginaire Repository
+
+We have a reimplementation of the UNIT method that is more performant. It is avaiable at [Imaginaire](https://github.com/NVlabs/imaginaire)
+
 ### License
 
 Copyright (C) 2018 NVIDIA Corporation.  All rights reserved.
