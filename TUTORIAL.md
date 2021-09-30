@@ -66,10 +66,25 @@ We provide several training scripts as usage examples. They are located under `s
     
 4. Intermediate image outputs and model binary files are stored in `outputs/unit_gta2city_folder`
 
+### Resume from last stopped iteration:
+ ```
+    python train.py --trainer UNIT --config configs/unit_gta2city_folder.yaml --resume
+  ```
+  This will resume training from last stopped iteration.
+  If you get EOF erroe etc it means the last stored iteration may be corrupt so delete it and resume. Example if 50k iteration is corrupt, delete it. Resume option continues from 49k then.
+  Note: --resume option is stored true by default ie mentioning it alone is enough to make it true.
 
 ### Testing
 
 First, download our pretrained models for the gta2cityscape task and put them in `models` folder.
+
+### Out of memory?
+In case you run out of memory on system to store checkpoints. 
+1. Change the frequency of checkpoint storage in the config file.
+2. Delete all the discriminator and generator model all but last two iterations.
+3. 'df -h ' helps you keep track of current available system memory.
+4. In case, you accidentally delete wrong checkpoints : Go to the trash folder in your system and mv the file from there to required checkpoint folder. 
+In case of linux systems : cd ~/.local/share/Trash (Source: https://askubuntu.com/questions/327943/how-to-open-trash-through-terminal)
 
 #### Pretrained models 
 
